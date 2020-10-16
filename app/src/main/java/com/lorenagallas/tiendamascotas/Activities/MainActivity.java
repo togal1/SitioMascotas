@@ -3,70 +3,64 @@ package com.lorenagallas.tiendamascotas.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+import com.lorenagallas.tiendamascotas.Adaptador.MascotaAdaptador;
+import com.lorenagallas.tiendamascotas.Fragments.PerfilFragment;
+import com.lorenagallas.tiendamascotas.Fragments.RecyclerViewFragment;
 import com.lorenagallas.tiendamascotas.Mascota;
-import com.lorenagallas.tiendamascotas.MascotaAdaptador;
 import com.lorenagallas.tiendamascotas.R;
+import com.lorenagallas.tiendamascotas.Adaptador.PaginaAdaptador;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
     //crear array para guardar coleccion mascotas
-    ArrayList<Mascota> mascotas;
+    private ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        inicializarListaMascotas();
-        //instanciamos
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
+        setUpViewPager();
 
-        inicializarAdaptador();
-
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
-
-        fab.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Subir una foto", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
-    public void inicializarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Manola", R.drawable.gato, 125));
-        mascotas.add(new Mascota("Ibi", R.drawable.perro, 236));
-        mascotas.add(new Mascota("Liam", R.drawable.pajaro, 23));
-        mascotas.add(new Mascota("Nemo", R.drawable.pez, 198));
-        mascotas.add(new Mascota("Anahi", R.drawable.paloma, 18));
-        mascotas.add(new Mascota("Sabrina", R.drawable.mariposa, 112));
-        mascotas.add(new Mascota("Karina", R.drawable.vaca, 98));
-        mascotas.add(new Mascota("Ramiro", R.drawable.oveja, 9));
-        mascotas.add(new Mascota("Mario", R.drawable.colibri, 325));
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+
+        return fragments;
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
-        listaMascotas.setAdapter(adaptador);
+    private  void  setUpViewPager(){
+        viewPager.setAdapter(new PaginaAdaptador(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.camara);
+        tabLayout.getTabAt(1).setIcon(R.drawable.colibri);
     }
 
     @Override
@@ -74,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -92,10 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(MainActivity.this, Contacto.class);
                 startActivity(intent2);
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

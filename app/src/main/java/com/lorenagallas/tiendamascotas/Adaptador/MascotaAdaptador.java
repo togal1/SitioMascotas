@@ -1,17 +1,17 @@
-package com.lorenagallas.tiendamascotas;
+package com.lorenagallas.tiendamascotas.Adaptador;
 
-import android.graphics.Color;
-import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.lorenagallas.tiendamascotas.Mascota;
+import com.lorenagallas.tiendamascotas.R;
 
 import java.util.ArrayList;
 

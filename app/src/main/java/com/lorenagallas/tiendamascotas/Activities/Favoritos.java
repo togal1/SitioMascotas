@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 
 
 import com.lorenagallas.tiendamascotas.Mascota;
-import com.lorenagallas.tiendamascotas.MascotaAdaptador;
+import com.lorenagallas.tiendamascotas.Adaptador.MascotaAdaptador;
 import com.lorenagallas.tiendamascotas.R;
 
 import java.util.ArrayList;
