@@ -1,4 +1,4 @@
-package com.lorenagallas.tiendamascotas;
+package com.lorenagallas.tiendamascotas.POJO;
 
 public class Mascota {
     private String nombre;
@@ -9,7 +9,6 @@ public class Mascota {
         this.nombre  = nombre;
         this.foto    = foto;
         this.like    = like;
-
     }
 
     public String getNombre() {

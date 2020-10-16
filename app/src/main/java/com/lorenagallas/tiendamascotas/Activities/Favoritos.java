@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 
 
-import com.lorenagallas.tiendamascotas.Mascota;
+import com.lorenagallas.tiendamascotas.POJO.Mascota;
 import com.lorenagallas.tiendamascotas.Adaptador.MascotaAdaptador;
 import com.lorenagallas.tiendamascotas.R;
 

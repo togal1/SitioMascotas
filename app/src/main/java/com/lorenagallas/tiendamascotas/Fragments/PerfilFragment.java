@@ -3,16 +3,15 @@ package com.lorenagallas.tiendamascotas.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lorenagallas.tiendamascotas.Mascota;
+import com.lorenagallas.tiendamascotas.Adaptador.PaginaAdaptador;
 import com.lorenagallas.tiendamascotas.R;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +32,7 @@ public class PerfilFragment extends Fragment {
     public PerfilFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -64,7 +64,7 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+       
         return inflater.inflate(R.layout.fragment_perfil, container, false);
 
 

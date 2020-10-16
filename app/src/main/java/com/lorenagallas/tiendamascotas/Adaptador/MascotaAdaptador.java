@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lorenagallas.tiendamascotas.Mascota;
+import com.lorenagallas.tiendamascotas.POJO.Mascota;
 import com.lorenagallas.tiendamascotas.R;
 
 import java.util.ArrayList;

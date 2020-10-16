@@ -1,6 +1,5 @@
 package com.lorenagallas.tiendamascotas.Fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,12 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lorenagallas.tiendamascotas.Adaptador.MascotaAdaptador;
-import com.lorenagallas.tiendamascotas.Mascota;
+import com.lorenagallas.tiendamascotas.POJO.Mascota;
 import com.lorenagallas.tiendamascotas.R;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
