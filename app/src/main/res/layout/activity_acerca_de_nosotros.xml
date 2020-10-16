@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.AcercaDeNosotros">
+
+    <include
+        android:id="@+id/miActionBar"
+        layout="@layout/action_bar" />
+
+    <ImageView
+        android:id="@+id/huellaNosotros"
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/huella" />
+
+    <TextView
+        android:id="@+id/tvAutor"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="130dp"
+        android:text="@string/autor"
+        android:textSize="35dp"
+        android:textStyle="italic" />
+
+</LinearLayout>
